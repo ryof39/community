@@ -1,0 +1,12 @@
+2021-04-08 16:43:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+INSERT into USER (name,account_id,token,gmt_create,gmt_modified) values (?,?,?,?,?) [42102-200]
+2021-04-08 16:48:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+INSERT into USER (name,account_id,token,gmt_create,gmt_modified) values (?,?,?,?,?) [42102-200]
+2021-04-08 16:49:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+INSERT into USER (name,account_id,token,gmt_create,gmt_modified) values (?,?,?,?,?) [42102-200]
+2021-04-08 16:49:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+INSERT into USER (name,account_id,token,gmt_create,gmt_modified) values (?,?,?,?,?) [42102-200]
