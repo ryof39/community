@@ -1,6 +1,6 @@
 package life.majiang.community.controller;
 
-import life.majiang.community.User;
+import life.majiang.community.controller.model.User;
 import life.majiang.community.dto.AccessTokenDTO;
 import life.majiang.community.dto.GithubUser;
 import life.majiang.community.mapper.UserMapper;
@@ -47,7 +47,7 @@ public class AuthorizeController {
         GithubUser githubUser = githubProvider.getUser(accessToken);
         System.out.println(githubUser.getName());//测试是否能够正确读取user.name等信息
         System.out.println(githubUser.getBio());
-        if (githubUser!=null){
+        if (githubUser!=null && githubUser.getId()!=null){
             User user = new User();
             String token = UUID.randomUUID().toString();
             user.setToken(token);
