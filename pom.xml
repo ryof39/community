@@ -72,15 +72,33 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-maven-plugin -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-maven-plugin</artifactId>
+			<version>7.7.2</version>
+		</dependency>
+
 	</dependencies>
 
-<!--	<build>-->
-<!--		<plugins>-->
+	<build>
+		<plugins>
 <!--			<plugin>-->
 <!--				<groupId>org.springframework.boot</groupId>-->
 <!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
 <!--			</plugin>-->
-<!--		</plugins>-->
-<!--	</build>-->
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>5.2.4</version>
+				<configuration>
+					<url>jdbc:mysql://localhost:3306/try?serverTimezone=UTC</url>
+					<user>root</user>
+					<password>root</password>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 
 </project>
