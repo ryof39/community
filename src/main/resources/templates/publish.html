@@ -33,24 +33,19 @@
                     <input type="text" class="form-control" id="tag" th:value="${tag}" name="tag" placeholder="输入标签，以逗号分隔">
                 </div>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li th:if="${session.user != null}">
-                        <a href="/publish">发布</a>
-                    </li>
-                    <li class="dropdown" th:if="${session.user != null}">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >
-                            <span th:text="${session.user.getName()}"></span>
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/profile/questions">我的问题</a></li>
-                            <li><a href="#">退出登录</a></li>
-                        </ul>
-                    </li>
-                    <li th:if="${session.user == null}">
-                        <a href="https://github.com/login/oauth/authorize?client_id=bee9e0916ee74d7263eb&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>
-                    </li>
-                </ul>
+
+                <div class="container-fluid main">
+                    <div class="row">
+                        <div class=" col-lg-9 col-md-12 col-sm-12 .col-xs-12">
+                            <div class="alert alert-danger col-lg-9 col-md-12 col-sm-12 col-xs-12"
+                                 th:text="${error}" th:if="${error!=null}"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 .col-xs-12">
+                            <button type="submit" class="btn btn-success btn-publish">发布</button>
+                        </div>
+
+                    </div>
+                </div>
 
             </form>
         </div>
