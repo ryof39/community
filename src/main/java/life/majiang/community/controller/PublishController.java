@@ -1,7 +1,7 @@
 package life.majiang.community.controller;
 
-import life.majiang.community.controller.model.Question;
-import life.majiang.community.controller.model.User;
+import life.majiang.community.model.Question;
+import life.majiang.community.model.User;
 import life.majiang.community.mapper.QuestionMapper;
 import life.majiang.community.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
