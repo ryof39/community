@@ -33,8 +33,9 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table schema="DB2Tables" tableName="user" domainObjectName="User" ></table>
-        <table schema="DB2Tables" tableName="question" domainObjectName="Question" ></table>
+        <table schema="DB2Tables1" tableName="user" domainObjectName="User" ></table>
+        <table schema="DB2Tables2" tableName="question" domainObjectName="Question" ></table>
+        <table schema="DB2Tables3" tableName="comment" domainObjectName="Comment" ></table>
 
     </context>
 </generatorConfiguration>
