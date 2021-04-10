@@ -2,6 +2,7 @@ package life.majiang.community.service;
 
 import life.majiang.community.exception.CustomizeErrorCode;
 import life.majiang.community.exception.CustomizeException;
+import life.majiang.community.mapper.QuestionExtMapper;
 import life.majiang.community.model.Question;
 import life.majiang.community.model.QuestionExample;
 import life.majiang.community.model.User;
@@ -22,6 +23,9 @@ public class QuestionService {
 
     @Autowired
     private QuestionMapper questionMapper;
+
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     @Autowired
     private UserMapper userMapper;
@@ -148,5 +152,13 @@ public class QuestionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    public void incView(Integer id) {
+
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }
