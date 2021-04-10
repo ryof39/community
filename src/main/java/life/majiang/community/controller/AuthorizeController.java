@@ -3,7 +3,6 @@ package life.majiang.community.controller;
 import life.majiang.community.model.User;
 import life.majiang.community.dto.AccessTokenDTO;
 import life.majiang.community.dto.GithubUser;
-import life.majiang.community.mapper.UserMapper;
 import life.majiang.community.provider.GithubProvider;
 import life.majiang.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +46,10 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
-        System.out.println(githubUser.getName());//测试是否能够正确读取user.name等信息
+        System.out.println("login id: "+githubUser.getId());
+        System.out.println("login name: "+githubUser.getName());//测试是否能够正确读取user.name等信息
         System.out.println(githubUser.getBio());
+
         if (githubUser != null && githubUser.getId() != null) {
             User user = new User();
             String token = UUID.randomUUID().toString();
