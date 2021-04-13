@@ -2,7 +2,7 @@ package life.majiang.community.controller;
 
 import life.majiang.community.dto.CommentDTO;
 import life.majiang.community.dto.ResultDTO;
-import life.majiang.community.mapper.CommentMapper;
+import life.majiang.community.exception.CustomizeErrorCode;
 import life.majiang.community.model.Comment;
 import life.majiang.community.model.User;
 import life.majiang.community.service.CommentService;
@@ -28,21 +28,21 @@ public class CommentController {
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            ResultDTO resultDTO = ResultDTO.errorOf(2002, "未登录不能进行评论，请先登录");
+            ResultDTO resultDTO = ResultDTO.errorOf(CustomizeErrorCode.NO_LOGIN);
             return resultDTO;
         }
         Comment comment = new Comment();
         comment.setParentId(commentDTO.getParentId());
         comment.setContent(commentDTO.getContent());
         comment.setType(commentDTO.getType());
-        comment.setGmtCreate(System.currentTimeMillis());
         comment.setGmtModified(System.currentTimeMillis());
-        comment.setCommentator(1);
+        comment.setGmtCreate(System.currentTimeMillis());
+        comment.setCommentator(user.getId());
         comment.setLikeCount(0L);
         commentService.insert(comment);
         Map<Object, Object> objectObjectHashMap = new HashMap<>();
         objectObjectHashMap.put("message", "成功");
 
-        return objectObjectHashMap;
+        return ResultDTO.okOf();
     }
 }
